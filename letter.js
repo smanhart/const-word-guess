@@ -9,7 +9,7 @@ Letter.prototype.returnLetter = function() {
     if (this.isGuessed) {
         return(this.singleLetter)
     } else {
-        return("_")
+        return("_ ")
     }
 }
 

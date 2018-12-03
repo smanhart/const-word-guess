@@ -1,4 +1,5 @@
 var Letter = require("./letter.js");
+var letter = new Letter();
 var letterArray = [];
 
 
@@ -17,12 +18,15 @@ function Word(randWord) {
 }
 
 Word.prototype.toString = function() {
+    var returnedArray = [];
+    
     letterArray.forEach(function(){
         var string = letter.returnLetter()
-        return string
+        returnedArray.push(string);
     })
 
-    console.log(string);
+    var currentString = returnedArray.join("")
+    console.log(currentString);
 }
 
 var word = new Word("hello");
