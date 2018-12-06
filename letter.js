@@ -1,3 +1,4 @@
+//constructor to hold individual letters and boolean for if it's been guessed
 function Letter(singleLetter, isGuessed, ) {
 
     this.singleLetter = singleLetter;
@@ -5,6 +6,7 @@ function Letter(singleLetter, isGuessed, ) {
 
 }
 
+//function to return either the hidden letter or a placeholder based on the boolean
 Letter.prototype.returnLetter = function() {
     if (this.isGuessed) {
         return(this.singleLetter)
@@ -13,26 +15,30 @@ Letter.prototype.returnLetter = function() {
     }
 }
 
+//function to check if a character matches the hidden letter and changes boolean accordingly
 Letter.prototype.checkLetter = function(char) {
-    if (char === this.singleLetter) {
+    // console.log("checkLetter check", this.singleLetter);
+    
+    if (char == this.singleLetter) {
         this.isGuessed = true;
-        console.log("You guessed the letter")
+        // console.log("You guessed the letter")
     } else {
         this.isGuessed = false;
-        console.log("Sorry, try again")
+        // console.log("Sorry, try again")
     }
 }
 
+//exports file
 module.exports = Letter
 
-// var a = new Letter("a", false)
+var a = new Letter("a", false)
 
-// a.returnLetter();
+console.log("returning a", a.returnLetter());
 
-// a.checkLetter("f");
+a.checkLetter("f");
 
-// a.returnLetter();
+console.log("return letter after failed check", a.returnLetter());
 
-// a.checkLetter("a");
+a.checkLetter("a");
 
-// a.returnLetter();
+console.log("returning after correct check", a.returnLetter());
